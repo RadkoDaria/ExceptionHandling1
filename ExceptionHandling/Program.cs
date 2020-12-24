@@ -7,20 +7,22 @@ namespace ExceptionHandling
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please, enter some line of symbols");
-
-            string line = Console.ReadLine();
-
-            try
+            do
             {
-                WriteFirstSymbol(line);
-            }
-            catch (EmptyLineException ex)
-            {
-                Console.WriteLine($"An exception has occurred! {ex.Message}");
-            }
-            Console.ReadKey();
+                Console.WriteLine("Please, enter some line of symbols");
 
+                string line = Console.ReadLine();
+
+                try
+                {
+                    WriteFirstSymbol(line);
+                }
+                catch (EmptyLineException ex)
+                {
+                    Console.WriteLine($"An exception has occurred! {ex.Message}");
+                }
+                Console.ReadKey();
+            } while (Console.ReadKey().Key != ConsoleKey.Escape);
         }
 
         public static void WriteFirstSymbol(string line)
